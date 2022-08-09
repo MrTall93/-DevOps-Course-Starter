@@ -7,23 +7,27 @@
     <p class="lead">Just another to-do app.</p>
   </div>
 
-
-
-  <div class="row">
     <form action="" method="post">
       <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Enter Todo...">
-        <button type="submit" value="submit">Add</button>
+        <label for="title">New Task: </label>
+        <input type="text" name="title" placeholder="Enter Todo..."> <button type="submit" value="submit">Add</button>
+        <br>
       </div>
     </form>
-    <div class="col-md-12">
-      <h2>Items</h2>
-      <ul class="list-group mb-4">
-        {% for task in data %}
-        <li>{{task.title}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
+   <hr>
+
+
+<table style="width:100%">
+  <thead><tr><th>Task</th><th>Status</th><th>Update</th></tr></thead>
+<tbody>
+      {% for task in data %}
+      {% if task.listName == 'To Do' %}
+      <tr><td>{{task.name}}</td><td>{{task.listName}}</td><td><a  href="/done/{{ task.id }}">Complete</a></td></tr>
+      {% else %}
+      <tr><td>{{task.name}}</td><td>{{task.listName}}</td><td><a  href="/undone/{{ task.id }}">Reset</a></td></tr>
+      {% endif %}
+      {% endfor %}
+</tbody>
+    </table>
+
 {% endblock %}

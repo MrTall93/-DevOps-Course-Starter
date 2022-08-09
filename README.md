@@ -10,8 +10,7 @@ The project uses poetry for Python to create an isolated environment and manage 
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
-```
-
+`
 ### Poetry installation (PowerShell)
 
 ```powershell
@@ -33,6 +32,13 @@ $ cp .env.template .env  # (first time only)
 ```
 
 The `.env` file is used by flask to set environment variables when running `flask run`. This enables things like development mode (which also enables features like hot reloading when you make a file change). There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie.
+
+Replace the following secrets to the env list before starting the app example:
+```bash
+TRELLO_KEY=123123123
+TROLLO_TOKEN=1231231123
+TROLLO_BOARD_ID=abcdx
+```
 
 ## Running the App
 
